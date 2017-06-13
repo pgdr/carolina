@@ -29,4 +29,4 @@ extern int all_but_actual_main_mpi(int argc, char* argv[],
 typedef int MPI_Comm;
 #endif // DAKOTA_HAVE_MPI
 
-#endif _DAKFACE_H_
+#endif // _DAKFACE_H_

@@ -130,6 +130,9 @@ numpy_include = os.path.join(os.path.dirname(numpy.__file__), os.path.join('core
 include_dirs = [dakota_include, numpy_include]
 library_dirs = [dakota_lib, dakota_bin]
 
+BOOST_INCDIR = '/boost_install/include'
+BOOST_LIBDIR = '/boost_install/lib'
+
 LAPACK_LIBDIR="."
 LD_FLAGS = ['-Wl,-z origin',
             '-Wl,-rpath=${ORIGIN}:${ORIGIN}/../' + egg_dir]
@@ -201,8 +204,10 @@ pyDAKOTA = Extension(name='pyDAKOTA',
 setup(name='pyDAKOTA',
       version='%s-%s' % (dakota_version, wrapper_version),
       description='A Python wrapper for DAKOTA',
-      py_modules=['dakota', 'test_dakota'],
+      py_modules=['test_dakota'],
       ext_modules=[pyDAKOTA],
+      packages=['dakota'],
       package_dir={'dakota':'src', 'test_pydakota':'tests'},
       zip_safe=False,
       data_files=data_files)
+
